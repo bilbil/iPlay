@@ -6,4 +6,4 @@ out := ./build
 $(shell   mkdir -p $(out))
 
 testX11Capture:
-	g++ $(src_files) -o $(out)/capture -I$(inc_dir) $(lib) 
+	g++ test/testCapture.cpp $(src_files) -o $(out)/testCapture -I$(inc_dir) $(lib) 

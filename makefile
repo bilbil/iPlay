@@ -12,4 +12,4 @@ testdraw:
 	g++ test/testdraw.cpp -I/usr/include/cairo -lX11 -lXcomposite -lXfixes -lcairo -o $(out)/testdraw
 
 testmouse:
-	g++ test/testmouse.cpp -o $(out)/testmouse
+	g++ test/testmouse.cpp $(src_files) -I$(inc_dir) $(lib) -o $(out)/testmouse

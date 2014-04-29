@@ -1,0 +1,17 @@
+Dependencies
+
+for mouse and keyboard automation:
+xdotool
+
+for screen capture:
+libavcodec
+libavformat
+libavfilter
+libswscale
+libavutil
+
+for 2D window display drawing:
+libcairo2
+libXcomposite
+libXfixes
+libX

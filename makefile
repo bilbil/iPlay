@@ -10,3 +10,6 @@ testX11Capture:
 
 testdraw:
 	g++ test/testdraw.cpp -I/usr/include/cairo -lX11 -lXcomposite -lXfixes -lcairo -o $(out)/testdraw
+
+testmouse:
+	g++ test/testmouse.cpp -o $(out)/testmouse

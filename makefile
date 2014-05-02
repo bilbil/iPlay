@@ -16,7 +16,10 @@ testdraw:
 	g++ test/testdraw.cpp $(pkg-config --cflags cairo) $(libcairo) -o $(out)/testdraw
 
 testmouse:
-	g++ test/testmouse.cpp $(src_files) -I$(inc_dir) $(libav) -o $(out)/testmouse
+	g++ test/testmouse.cpp $(src_files) -I$(inc_dir) $(pkg-config --cflags cairo) $(pkg-config --cflags opencv) $(libopencv) $(libcairo) $(libav) -o $(out)/testmouse
 
 testimread:
-	g++ test/imreadtest.cpp $(src_files) -I$(inc_dir) $(pkg-config --cflags cairo) $(pkg-config --cflags opencv) $(libopencv) $(libcairo) $(libav) -o $(out)/testimread
+	g++ test/testimread.cpp $(src_files) -I$(inc_dir) $(pkg-config --cflags cairo) $(pkg-config --cflags opencv) $(libopencv) $(libcairo) $(libav) -o $(out)/testimread
+
+autofighter:
+	g++ -std=c++0x test/autofighter.cpp $(src_files) -I$(inc_dir) $(pkg-config --cflags cairo) $(pkg-config --cflags opencv) $(libopencv) $(libcairo) $(libav) -o $(out)/autofighter

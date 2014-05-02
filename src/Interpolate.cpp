@@ -5,20 +5,20 @@ Interpolate::Interpolate()
   this->CurrentStep = 0;
 }
 
-void Interpolate::InterpolateLinear(int dim, int start[], int finish[], int steps, int current[], bool & done)
+void Interpolate::InterpolateLinear(int dim, float start[], float finish[], int stepsTotal, float current[], bool & done)
 {
 
   int * diff = new int[dim];
-  int * step = new int[dim];
+  float * step = new float[dim];
 
   // for each dimension, calculate the difference and step size
   for(int i = 0; i < dim; i++){
     diff[i] = finish[i] - start[i];
-    step[i] = diff[i]/steps;
+    step[i] = ((float)diff[i])/stepsTotal;
   }
 
   //check if finished  
-  if(CurrentStep >= steps){
+  if(CurrentStep > stepsTotal){
     done = true;
     return;
   }
@@ -33,7 +33,7 @@ void Interpolate::InterpolateLinear(int dim, int start[], int finish[], int step
   
   //increment current value
   for(int i = 0; i < dim; i++){
-    current[i] += step[i];
+    current[i] = start[i] + CurrentStep * step[i];
   }
 
   CurrentStep++;

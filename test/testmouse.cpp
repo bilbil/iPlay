@@ -1,10 +1,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include <iostream>
+#include <stdio.h>
 #include <sstream>
 #include <unistd.h>
 
 #include "Interpolate.h"
+#include "WindowUtility.h"
 
 using namespace std;
 
@@ -16,29 +18,10 @@ int main(int argc,char * argv[]) {
   string call ="";
 
   //use linear interpolation for moving
-  int mousePosOld[2] = {0,0};
-  int mousePosNew[2] = {500,500};
-  int mousePosCur[2] = {0,0};
-  int mouseDim = 2;
-  int mouseStep = 500;
-  bool mouseDone = false;
+  float mousePosNew[2] = {500,500};
+  int mouseStep = 50;
 
-  Interpolate Iterpolate;
-  
-  while(mouseDone == false){
-    Iterpolate.InterpolateLinear(mouseDim, mousePosOld, mousePosNew, mouseStep, mousePosCur, mouseDone);   
-
-    stringstream ss;
-
-    for(int i = 0; i < mouseDim; i++){
-      ss << mousePosCur[i] <<" ";
-    }
-
-    call = xtool + command + ss.str();
-    cout<<"called: "<<call<<endl;
-    system(call.c_str());
-    usleep(30);
-  }
+  MouseMove(mousePosNew[0], mousePosNew[1], mouseStep);
 
   return 0;
 }

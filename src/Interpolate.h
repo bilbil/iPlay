@@ -7,7 +7,7 @@ class Interpolate
   Interpolate();
   int CurrentStep;
   
-  void InterpolateLinear(int dim, int start[], int finish[], int steps, int current[], bool & done);
+  void InterpolateLinear(int dim, float start[], float finish[], int steps, float current[], bool & done);
 
 };
 

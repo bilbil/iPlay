@@ -39,8 +39,11 @@ int main( int argc, char** argv )
     return -1;
   }
 
-  namedWindow( "Display window", WINDOW_AUTOSIZE );// Create a window for display.
-  imshow( "Display window", image );                   // Show our image inside it.
+  namedWindow( "Template", WINDOW_AUTOSIZE );// Create a window for display.
+  namedWindow( "Capture", WINDOW_AUTOSIZE );// Create a window for display.
+  namedWindow( "Match", WINDOW_AUTOSIZE );// Create a window for display.
+
+  imshow( "Template", image );                   // Show our image inside it.
 
   Size imgSize = image.size();
   cout<<"image size: "<<imgSize.width<<", "<<imgSize.height<<endl;
@@ -58,14 +61,31 @@ int main( int argc, char** argv )
     }
   }
     
-  waitKey(0);                                          // Wait for a keystroke in the window
+  // waitKey(0);                                          // Wait for a keystroke in the window
 
   //create new mat from screen capture
   Mat newImg = ConvertUcharRgbToMat(pImage, sizex, sizey);
 
-  imshow( "Display window", newImg );    
+  imshow( "Capture", newImg );    
    
-  waitKey(0);                                          // Wait for a keystroke in the window
+  // waitKey(0);                                          // Wait for a keystroke in the window
+
+  //cross correlation test  
+  Mat result;
+  matchTemplate(newImg,image,result,CV_TM_CCOEFF_NORMED);
+
+  //get max of match
+  double minVal; double maxVal; Point minLoc; Point maxLoc;
+  minMaxLoc( result, &minVal, &maxVal, &minLoc, &maxLoc, Mat() );
+
+  Point center = Point(maxLoc.x, maxLoc.y);
+  circle(result, center,2,Scalar(1,0,0),CV_FILLED, 8,0);
+  
+  cout<<"best match coefficient: "<<maxVal<<", position: "<<maxLoc.x<<", "<<maxLoc.y<<endl;
+
+  imshow( "Match", result ); 
+
+  waitKey(0);    
 
   return 0;
 }

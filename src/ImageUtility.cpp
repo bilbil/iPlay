@@ -21,6 +21,8 @@ Mat OpenImageMat(string filepath)
     cout <<  "Could not open or find the image" << std::endl;
   }
 
+  image.convertTo(image, CV_32F, 1.0/255.0);
+
   return image;
 }
 
@@ -46,6 +48,8 @@ Mat ConvertUcharRgbToMat(unsigned char * in, int width, int height)
       in+=3;
     }
   }
+
+  image.convertTo(image, CV_32F, 1.0/255.0);
 
   return image;
 }

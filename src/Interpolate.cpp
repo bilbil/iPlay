@@ -1,11 +1,11 @@
-#include "interpolate.h"
+#include "Interpolate.h"
 
-interpolate::interpolate()
+Interpolate::Interpolate()
 {
   this->CurrentStep = 0;
 }
 
-void interpolate::interpolateLinear(int dim, int start[], int finish[], int steps, int current[], bool & done)
+void Interpolate::InterpolateLinear(int dim, int start[], int finish[], int steps, int current[], bool & done)
 {
 
   int * diff = new int[dim];

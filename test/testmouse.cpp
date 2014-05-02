@@ -4,7 +4,7 @@
 #include <sstream>
 #include <unistd.h>
 
-#include "interpolate.h"
+#include "Interpolate.h"
 
 using namespace std;
 
@@ -23,10 +23,10 @@ int main(int argc,char * argv[]) {
   int mouseStep = 500;
   bool mouseDone = false;
 
-  interpolate Iterpolate;
+  Interpolate Iterpolate;
   
   while(mouseDone == false){
-    Iterpolate.interpolateLinear(mouseDim, mousePosOld, mousePosNew, mouseStep, mousePosCur, mouseDone);   
+    Iterpolate.InterpolateLinear(mouseDim, mousePosOld, mousePosNew, mouseStep, mousePosCur, mouseDone);   
 
     stringstream ss;
 

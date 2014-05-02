@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-#include "capture.h"
+#include "Capture.h"
 
 using namespace std;
 

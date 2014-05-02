@@ -6,7 +6,7 @@
 
 #include <sstream>
 
-#include "capture.h"
+#include "Capture.h"
 
 #ifdef __cplusplus
 extern "C" {

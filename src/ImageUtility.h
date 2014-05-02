@@ -9,7 +9,7 @@
 
 using namespace cv;
 
-Mat OpenImageMatRGB(string filepath);
+Mat OpenImageMat(string filepath);
 
 Mat ConvertUcharRgbToMat(unsigned char * in, int width, int height);
 

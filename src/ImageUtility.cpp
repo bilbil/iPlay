@@ -10,7 +10,7 @@
 using namespace cv;
 using namespace std;
 
-Mat OpenImageMatRGB(string filepath)
+Mat OpenImageMat(string filepath)
 {
   Mat image;
 

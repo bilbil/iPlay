@@ -32,7 +32,7 @@ int main( int argc, char** argv )
     cout<<"error"<<endl;
 
   //get input image
-  Mat image = OpenImageMatRGB(inputImage);
+  Mat image = OpenImageMat(inputImage);
   if(! image.data )                              // Check for invalid input
   {
     cout <<  "Could not open or find the image" << std::endl ;

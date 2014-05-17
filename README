@@ -17,3 +17,6 @@ libcairo2
 libXcomposite
 libXfixes
 libX
+
+image processing:
+OpenCV
